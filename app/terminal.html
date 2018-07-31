@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<form id="terminal">
+		<div class="form-item-wrapper">
+			<label>
+				<span>Comm Type</span>
+				<select id="comm-type" name="comm-type">
+					<option value="ncd-usb">NCD USB</option>
+					<option value="standard">Native I2C</option>
+				</select>
+			</label>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>Bus Name</span>
+				<select id="input-bus" name="input-bus">
+					<option selected="selected">--Select Comm Type--</option>
+				</select>
+			</label>
+
+			<span id="reload_comm">reload</span>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>I2C Port (Bridge X5)</span>
+				<input name="input-port" id="input-port" value="0" />
+			</label>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>I2C Address</span>
+				<select id="address" name="address">
+					<option value="0">0</option>
+				</select>
+			</label>
+			<span id="reload_addr">reload</span>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>Command Type</span>
+				<select id="command-type" name="command-type">
+					<option value="read">Read</option>
+					<option value="write">Write</option>
+				</select>
+			</label>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>Input Format</span>
+				<select id="input-format" name="input-format">
+					<option value="int">Integers</option>
+					<option value="hex">Hex</option>
+				</select>
+			</label>
+		</div>
+		<label>
+			<span>Register</span>
+			<input name="register" id="register" value="" />
+		</label>
+		<div id="read-options">
+			<label>
+				<span>Bytes to read</span>
+				<input name="read-length" id="read-length" value="1" />
+			</label>
+		</div>
+		<div id="write-options">
+			<div class="form-item-wrapper">
+				<label>
+					<span>Bytes to Send</span>
+					<textarea name="input" id="input"></textarea>
+				</label>
+			</div>
+		</div>
+		<div class="form-item-wrapper">
+			<label>
+				<span>Output Format</span>
+				<select id="output-format" name="output-format">
+					<option value="int">Integers</option>
+					<option value="hex">Hex</option>
+				</select>
+			</label>
+		</div>
+		<div>
+			<input type="submit" value="Send" />
+		</div>
+		<h4>Results</h4>
+		<table id="results">
+			<thead>
+				<tr>
+					<th>Op</th>
+					<th>Address</th>
+					<th>Register</th>
+					<th>Data</th>
+					<th>Length</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
